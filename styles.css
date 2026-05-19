@@ -725,6 +725,12 @@ h1 {
   box-shadow: var(--shadow);
 }
 
+.mini-timeline p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 .contact {
   padding-bottom: 56px;
 }
