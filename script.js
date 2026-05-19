@@ -4,7 +4,7 @@ const navLinks = document.querySelector(".nav-links");
 const year = document.querySelector("#year");
 const themeButtons = Array.from(document.querySelectorAll("[data-theme-value]"));
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-const themes = new Set(["fortress", "aurora", "ember"]);
+const themes = new Set(["light", "dark", "professional", "forest", "space"]);
 
 if (year) {
   year.textContent = String(new Date().getFullYear());
@@ -27,7 +27,7 @@ function storeTheme(theme) {
 }
 
 function setTheme(theme) {
-  const nextTheme = themes.has(theme) ? theme : "fortress";
+  const nextTheme = themes.has(theme) ? theme : "light";
   root.dataset.theme = nextTheme;
   themeButtons.forEach((button) => {
     const isActive = button.dataset.themeValue === nextTheme;
@@ -36,7 +36,7 @@ function setTheme(theme) {
   storeTheme(nextTheme);
 }
 
-setTheme(readStoredTheme() || "fortress");
+setTheme(readStoredTheme() || "light");
 
 themeButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -155,20 +155,17 @@ function startLiveBackground() {
   });
 }
 
-function startCursorTrail() {
+function startCursorAccent() {
   if (reducedMotion.matches || window.matchMedia("(pointer: coarse)").matches) {
     return;
   }
 
-  const dots = Array.from({ length: 14 }, (_, index) => {
-    const dot = document.createElement("span");
-    dot.className = "cursor-dot";
-    dot.style.opacity = String(1 - index / 16);
-    dot.style.scale = String(1 - index * 0.035);
-    document.body.appendChild(dot);
-    return { element: dot, x: -100, y: -100 };
-  });
+  const cursor = document.createElement("span");
+  cursor.className = "cursor-spot";
+  document.body.appendChild(cursor);
 
+  let currentX = -100;
+  let currentY = -100;
   let targetX = -100;
   let targetY = -100;
   let active = false;
@@ -183,24 +180,16 @@ function startCursorTrail() {
     active = false;
   });
 
-  function animateTrail() {
-    let x = targetX;
-    let y = targetY;
-
-    dots.forEach((dot, index) => {
-      dot.x += (x - dot.x) * (index === 0 ? 0.45 : 0.28);
-      dot.y += (y - dot.y) * (index === 0 ? 0.45 : 0.28);
-      dot.element.style.opacity = active ? String(Math.max(0.12, 1 - index / 15)) : "0";
-      dot.element.style.transform = `translate3d(${dot.x - 4}px, ${dot.y - 4}px, 0)`;
-      x = dot.x;
-      y = dot.y;
-    });
-
-    requestAnimationFrame(animateTrail);
+  function animateCursor() {
+    currentX += (targetX - currentX) * 0.32;
+    currentY += (targetY - currentY) * 0.32;
+    cursor.style.opacity = active ? "0.75" : "0";
+    cursor.style.transform = `translate3d(${currentX - 9}px, ${currentY - 9}px, 0)`;
+    requestAnimationFrame(animateCursor);
   }
 
-  animateTrail();
+  animateCursor();
 }
 
 startLiveBackground();
-startCursorTrail();
+startCursorAccent();
