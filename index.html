@@ -12,21 +12,28 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <canvas class="live-background" id="live-background" aria-hidden="true"></canvas>
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header" aria-label="Primary">
       <nav class="nav">
-        <a class="brand" href="#top" aria-label="Bushra Batool Abbas home">BBA</a>
+        <a class="brand" href="index.html#top" aria-label="Bushra Batool Abbas home">BBA</a>
         <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
         </button>
         <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#experience">Experience</a>
+          <a href="index.html#projects">Projects</a>
+          <a href="certifications.html">Certifications</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+        <div class="theme-switcher" aria-label="Theme picker">
+          <button class="theme-swatch swatch-fortress" type="button" data-theme-value="fortress" aria-label="Use fortress theme" title="Fortress theme"></button>
+          <button class="theme-swatch swatch-aurora" type="button" data-theme-value="aurora" aria-label="Use aurora theme" title="Aurora theme"></button>
+          <button class="theme-swatch swatch-ember" type="button" data-theme-value="ember" aria-label="Use ember theme" title="Ember theme"></button>
         </div>
       </nav>
     </header>
@@ -56,22 +63,9 @@
           </p>
           <div class="hero-actions" aria-label="Contact links">
             <a class="button primary" href="mailto:bushrabatoolabbas@gmail.com">Email Me</a>
+            <a class="button secondary" href="certifications.html">Certifications</a>
             <a class="button secondary" href="https://www.linkedin.com/in/bushrabatoolabbas/" rel="noreferrer">LinkedIn</a>
             <a class="button secondary" href="https://github.com/bushrabatoolabbas" rel="noreferrer">GitHub</a>
-          </div>
-        </div>
-        <div class="hero-stats" aria-label="Profile highlights">
-          <div>
-            <strong>ISO</strong>
-            <span>27001 and 9001 audit readiness</span>
-          </div>
-          <div>
-            <strong>GRC</strong>
-            <span>Risk, controls, policy, awareness</span>
-          </div>
-          <div>
-            <strong>NUST</strong>
-            <span>Electrical Engineering foundation</span>
           </div>
         </div>
       </section>
@@ -79,11 +73,11 @@
       <section class="section about" id="about" aria-labelledby="about-title">
         <div class="section-heading">
           <p class="section-kicker">About</p>
-          <h2 id="about-title">Security work with an engineer's eye for systems.</h2>
+          <h2 id="about-title">Information security work with an engineer's eye for systems.</h2>
         </div>
         <div class="about-grid">
           <p>
-            I am an Information Security Engineer with experience across GRC analysis, audit support, risk assessment, security policy development, and compliance framework implementation.
+            I am an Information Security Engineer with experience across GRC, audit, risk assessment, security policy development, and compliance framework implementation.
           </p>
           <p>
             My background in Electrical Engineering from the National University of Sciences and Technology helps me approach security as a practical operating discipline: clear controls, usable documentation, measurable gaps, and steady improvement.
@@ -112,8 +106,8 @@
 
           <article class="timeline-item">
             <div class="timeline-meta">
-              <span>Apr 2025</span>
-              <strong>Catalyic</strong>
+              <span>Apr 2025 - Sep 2025</span>
+              <strong>Catalyic Security</strong>
             </div>
             <div class="timeline-body">
               <h3>GRC Consultant</h3>
@@ -126,7 +120,7 @@
           <article class="timeline-item">
             <div class="timeline-meta">
               <span>Sep 2024 - Apr 2025</span>
-              <strong>INTECH - Process Automation</strong>
+              <strong>INTECH Automation &amp; Intelligence</strong>
             </div>
             <div class="timeline-body">
               <h3>Trainee Engineer</h3>
@@ -147,6 +141,30 @@
                 Conducted business-unit risk assessments, maintained policies and procedures, evaluated security controls through internal audits, and supported employee awareness programs.
               </p>
             </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section highlights" aria-labelledby="highlights-title">
+        <div class="section-heading">
+          <p class="section-kicker">Highlights</p>
+          <h2 id="highlights-title">A portfolio built around security assurance, evidence, and growth.</h2>
+        </div>
+        <div class="highlight-grid">
+          <article class="highlight-card">
+            <span class="highlight-mark"></span>
+            <h3>Audit and Compliance</h3>
+            <p>Hands-on work across internal audits, evidence collection, gap assessment, control review, and certification readiness.</p>
+          </article>
+          <article class="highlight-card">
+            <span class="highlight-mark"></span>
+            <h3>Policy and Awareness</h3>
+            <p>Security documentation, standards review, stakeholder communication, and training that makes controls easier to adopt.</p>
+          </article>
+          <article class="highlight-card">
+            <span class="highlight-mark"></span>
+            <h3>Offensive Security Foundations</h3>
+            <p>Completed the CAPT course and exam covering offensive security basics, strengthening practical understanding of attacker workflows.</p>
           </article>
         </div>
       </section>
@@ -198,11 +216,13 @@
           <div>
             <h3>Certifications and Training</h3>
             <ul class="credential-list">
+              <li>CAPT course and exam in offensive security basics</li>
               <li>ISO 27001:2022 Lead Auditor</li>
               <li>ISC2 Certified in Cybersecurity</li>
               <li>IBM Cybersecurity Fundamentals</li>
               <li>Google AI Essentials</li>
             </ul>
+            <a class="text-link" href="certifications.html">View certifications and achievements</a>
           </div>
         </div>
       </section>
